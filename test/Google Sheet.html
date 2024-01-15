@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admission Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="../test/Google Sheet.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <form method="post" action="process_form.php" name="contact-form">
+            <h4 class="mb-4">Admission Open Now - Enquire Now</h4>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Your Name">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="Number" name="Number" placeholder="Enter Your Phone Number">
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" id="Course" name="Course">
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="BBA">BBA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MBA">MBA</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" id="Combination" name="Combination">
+                    <option value="" disabled selected>Select Combination</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Submit" id="submit">
+        </form>
+
+        <!-- Close button -->
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JS -->
+    <script src="../test/Google Sheet.js"></script>
+
+    <script>
+        // Update Combination dropdown options based on the selected Course
+        document.getElementById('Course').addEventListener('change', function() {
+            var courseSelect = document.getElementById('Course');
+            var combinationSelect = document.getElementById('Combination');
+
+            // Clear previous options
+            combinationSelect.innerHTML = '<option value="" disabled selected>Select Combination</option>';
+
+            // Add new options based on the selected Course
+            if (courseSelect.value === 'BBA') {
+                addOption(combinationSelect, 'Aviation Management', 'BBA Aviation Management');
+                addOption(combinationSelect, 'Finance', 'BBA Finance');
+                addOption(combinationSelect, 'Marketing', 'BBA Marketing');
+                addOption(combinationSelect, 'Business Analytics', 'BBA Business Analytics');
+                addOption(combinationSelect, 'E-Commerce & Supply Chain', 'BBA E-Commerce & Supply Chain');
+            } else if (courseSelect.value === 'BCA') {
+                // Add options specific to BCA
+                addOption(combinationSelect, 'AI/ML', 'ARTIFICIAL INTELEGENCE/MACHINE LEARNING');
+                // Add more options as needed
+            }
+            // Add more conditions for other courses
+
+            // Function to add options to the Combination dropdown
+            function addOption(selectElement, value, text) {
+                var option = document.createElement('option');
+                option.value = value;
+                option.text = text;
+                selectElement.add(option);
+            }
+        });
+    </script>
+
+</body>
+</html>

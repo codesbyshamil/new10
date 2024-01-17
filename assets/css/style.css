@@ -1066,20 +1066,46 @@ section {
   opacity: 1;
   bottom: 20px;
 }
+
 /*--------------------------------------------------------------
 # Courses
 --------------------------------------------------------------*/
 
 .curved-box {
-  display: block;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #f8f9fa;
-  text-align: center;
-  text-decoration: none;
-  color: #495057;
-  transition: background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px; /* Adjust the radius as needed */
+  height: 200px; /* Adjust the height as needed */
+  width: 200px;
+  text-align: center; /* Center text within the curved-box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #4b4a4a;
 }
+
+.curved-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Should match the radius of the curved-box */
+  overflow: hidden;
+  height: 70%; /* Adjust the height of the image container */
+}
+
+/* Add the following CSS rules */
+.course-info {
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: center; /* Center the text */
+}
+
+.curved-img {
+  width: 300px;
+  height: auto;
+  object-fit: contain; /* You can change 'contain' to 'cover' based on your preference */
+  display: block;
+  margin: auto; /* Center the image horizontally */
+}
+
 
 .curved-box h4 {
   margin-bottom: 0;
@@ -1090,10 +1116,15 @@ section {
 }
 
 @media (max-width: 768px) {
-  .curved-box {
-    text-align: center; /* Center text on mobile */
+  .curved-img-container {
+    height: 100%; /* Adjust the height for mobile view */
+  }
+  .course-info {
+    padding: 10px; /* Adjust padding for mobile view */
   }
 }
+
+
 
 /*--------------------------------------------------------------
 # Portfolio Details
